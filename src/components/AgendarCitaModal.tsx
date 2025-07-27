@@ -227,13 +227,6 @@ export default function AgendarCitaModal({ open, onClose, psicologo, onConfirmar
     return "filled"
   }
 
-  const getChipIcon = (slot: HorarioSlot, isSelected: boolean) => {
-    if (isSelected) return <CheckCircle sx={{ fontSize: 18 }} />
-    if (slot.ocupado) return <Cancel sx={{ fontSize: 18 }} />
-    if (slot.disponible) return <AccessTime sx={{ fontSize: 18 }} />
-    return null
-  }
-
   const horariosDelDia = diaSeleccionado !== "" ? getHorariosDelDia(diaSeleccionado as number) : []
   const diaSeleccionadoLabel = diasSemana.find((d) => d.value === diaSeleccionado)?.label
   const especialidadLabel = especialidadSeleccionada ? tematicasLabels[especialidadSeleccionada] : ""
@@ -275,10 +268,8 @@ export default function AgendarCitaModal({ open, onClose, psicologo, onConfirmar
           </IconButton>
         </Stack>
 
-        {/* Contenido */}
         <Box sx={{ p: 3, maxHeight: "calc(90vh - 200px)", overflow: "auto" }}>
           <Stack spacing={3}>
-            {/* Paso 1: Selector de especialidad */}
             <Stack spacing={2}>
               <Typography variant="h6" fontWeight={600} color="primary">
                 Paso 1: Selecciona la especialidad
@@ -299,7 +290,6 @@ export default function AgendarCitaModal({ open, onClose, psicologo, onConfirmar
               </FormControl>
             </Stack>
 
-            {/* Paso 2: Selector de día */}
             {especialidadSeleccionada && (
               <>
                 <Divider />
@@ -325,7 +315,6 @@ export default function AgendarCitaModal({ open, onClose, psicologo, onConfirmar
               </>
             )}
 
-            {/* Paso 3: Horarios disponibles */}
             {diaSeleccionado !== "" && especialidadSeleccionada && (
               <>
                 <Divider />
@@ -337,7 +326,6 @@ export default function AgendarCitaModal({ open, onClose, psicologo, onConfirmar
                     Horarios disponibles para {diaSeleccionadoLabel}
                   </Typography>
 
-                  {/* Leyenda */}
                   <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
                     <Chip
                       icon={<AccessTime sx={{ fontSize: 16 }} />}
@@ -362,7 +350,6 @@ export default function AgendarCitaModal({ open, onClose, psicologo, onConfirmar
                     />
                   </Stack>
 
-                  {/* Stack de horarios */}
                   <Stack
                     direction="row"
                     spacing={2}
@@ -381,7 +368,6 @@ export default function AgendarCitaModal({ open, onClose, psicologo, onConfirmar
                       return (
                         <Chip
                           key={slot.hora}
-                          // icon={getChipIcon(slot, isSelected)}
                           label={slot.hora}
                           color={getChipColor(slot, isSelected)}
                           variant={getChipVariant(slot, isSelected)}
@@ -417,7 +403,6 @@ export default function AgendarCitaModal({ open, onClose, psicologo, onConfirmar
               </>
             )}
 
-            {/* Paso 4: Formulario de confirmación */}
             {horarioSeleccionado && diaSeleccionado !== "" && especialidadSeleccionada && (
               <>
                 <Divider />

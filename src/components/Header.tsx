@@ -12,7 +12,6 @@ export default function Header({ onPsicologoClick }: HeaderProps) {
     <AppBar position="static" elevation={2}>
       <Container maxWidth="lg">
         <Toolbar sx={{ justifyContent: "space-between", py: 1 }}>
-          {/* Título del lado izquierdo */}
           <Typography
             variant="h4"
             component="h1"
@@ -25,7 +24,6 @@ export default function Header({ onPsicologoClick }: HeaderProps) {
             Psi
           </Typography>
 
-          {/* Botón del lado derecho */}
           <Button
             variant="contained"
             startIcon={<Person />}

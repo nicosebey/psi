@@ -53,7 +53,7 @@ export default function LoginModal({ open, onClose, onLogin }: LoginModalProps) 
       setFormData({ username: "", password: "" })
       onClose()
     } catch (error) {
-      setError("Credenciales incorrectas")
+      setError("Credenciales incorrectas "+error)
     } finally {
       setLoading(false)
     }

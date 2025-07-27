@@ -1,7 +1,7 @@
-import { Psicologo, TematicaPsicologia, tematicasLabels } from "@/types/types"
+import { Psicologo, tematicasLabels } from "@/types/types"
 import { Psychology, Schedule } from "@mui/icons-material"
 import { Avatar, Box, Button, Card, CardActions, CardContent, Chip, Typography } from "@mui/material"
-import { useState } from "react"
+
 
 
 
@@ -11,7 +11,6 @@ interface PsicologoCardProps {
   }
 export default function PsicologoCard({psicologo,setShowSacarTurno}:PsicologoCardProps) {
 
-  const [tematicaFiltro, setTematicaFiltro] = useState<TematicaPsicologia | "">("")
     const getInitials = (nombre: string, apellido: string) => {
         return `${nombre.charAt(0)}${apellido.charAt(0)}`
       }
@@ -63,8 +62,6 @@ export default function PsicologoCard({psicologo,setShowSacarTurno}:PsicologoCar
                       key={tematica}
                       label={tematicasLabels[tematica]}
                       size="small"
-                      color={tematica === tematicaFiltro ? "primary" : "default"}
-                      variant={tematica === tematicaFiltro ? "filled" : "outlined"}
                       icon={<Psychology sx={{ fontSize: 16 }} />}
                     />
                   ))}

@@ -7,17 +7,12 @@ import {
   Select,
   MenuItem,
   Typography,
-  Card,
-  CardContent,
-  Chip,
   Paper,
   Button,
-  CardActions,
-  Avatar,
   Stack,
 } from "@mui/material"
 import { useState, useEffect } from "react"
-import { Psychology, Schedule } from "@mui/icons-material"
+import { Psychology } from "@mui/icons-material"
 import { TematicaPsicologia, tematicasLabels } from "@/types/types"
 import PsicologoCard from "./PsicologoCard"
 import AgendarCitaModal from "./AgendarCitaModal"
@@ -39,7 +34,6 @@ export default function FiltrarPsicologos() {
     psicologo: null,
   })
   useEffect(() => {
-    // Aquí cargarías los psicólogos desde tu API
     const mockPsicologos: Psicologo[] = [
       {
         id: "1",
@@ -120,7 +114,7 @@ export default function FiltrarPsicologos() {
        <Stack direction='row' gap="2rem" >
 
         {psicologosFiltrados.map((psicologo) => (
-            <PsicologoCard psicologo={psicologo} setShowSacarTurno={()=>setShowSacarTurno({visible:true,psicologo:psicologo})}/>  
+            <PsicologoCard key={psicologo.id} psicologo={psicologo} setShowSacarTurno={()=>setShowSacarTurno({visible:true,psicologo:psicologo})}/>  
         ))}
         </Stack>
 
