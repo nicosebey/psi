@@ -24,17 +24,23 @@ export enum TematicaPsicologia {
     [TematicaPsicologia.TERAPIA_COGNITIVA]: "Terapia Cognitiva",
   }
   
-  export interface Psicologo {
-    id: string
-    nombre: string
-    apellido: string
-    username: string
-    password?: string
-    tematicas: TematicaPsicologia[]
-    createdAt?: Date
+export interface Psicologo {
+  id: string
+  nombre: string
+  apellido: string
+  username: string
+  password?: string
+  createdAt?: Date
     updatedAt?: Date
-  }
-  
+  tematicas: TematicaPsicologia[]
+  disponibilidades:{
+    dia: number
+    horaInicio: string
+    horaFin: string
+    isVirtual: boolean
+  }[]
+}
+
   export interface Disponibilidad {
     id: number
     psicologoId: string
@@ -42,7 +48,8 @@ export enum TematicaPsicologia {
     horaInicio: string
     horaFin: string
     isActive: boolean
-    createdAt: Date
+    isVirtual: boolean
+    createdAt?: Date
   }
   
   export interface Turno {
@@ -57,3 +64,12 @@ export enum TematicaPsicologia {
     createdAt: Date
   }
   
+  export interface TurnoOcupado {
+  dia: number
+  hora: string
+}
+export interface HorarioSlot {
+  hora: string
+  disponible: boolean
+  ocupado: boolean
+}

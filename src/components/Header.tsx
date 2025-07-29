@@ -10,8 +10,8 @@ interface HeaderProps {
 export default function Header({ onPsicologoClick }: HeaderProps) {
   return (
     <AppBar position="static" elevation={2}>
-      <Container maxWidth="lg">
-        <Toolbar sx={{ justifyContent: "space-between", py: 1 }}>
+      <Container maxWidth="lg" disableGutters>
+        <Toolbar sx={{ py: 1, px: 0 }}>
           <Typography
             variant="h4"
             component="h1"
@@ -19,11 +19,11 @@ export default function Header({ onPsicologoClick }: HeaderProps) {
               fontWeight: 700,
               color: "white",
               letterSpacing: 1,
+              flexGrow: 1,
             }}
           >
             Psi
           </Typography>
-
           <Button
             variant="contained"
             startIcon={<Person />}
